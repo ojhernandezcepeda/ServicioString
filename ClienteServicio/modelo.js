@@ -1,25 +1,30 @@
 function displayRequest(request){
     solicitud = $.format(request.toString(),{ method: 'xml'});
     $('#input-code').text(solicitud);
-    console.log("solicitud"+solicitud);
 };
 
 function displayResult(response){
     respuesta = $.format(response.toString(),{method: 'xml'});
     $('#output-code').text(respuesta);
     $('#output-container').removeClass("error");
-    console.log("respuesta"+ respuesta);
+    $('#output').removeClass("alert-light");
+    $('#output').addClass('alert-success');
+    var parser = new DOMParser();
+    var xmlDoc = parser.parseFromString(response,'text/xml');
+    console.log(xmlDoc);
+    var subtitulo = xmlDoc.getElementsByTagName("retval")[0].innerHTML;
+    document.getElementById("respuesta").value = subtitulo;
 };
 
 function displayError(response){
     respuesta = $.format(response.toString(),{method: 'xml'});
     $('#output-code').text(respuesta);
     $('#output-container').addClass("error");
-    console.log("respuesta Error"+ respuesta);
+    $('#output').removeClass("alert-light");
+    $('#output').addClass('alert-danger');
 };
 
 function sendRequest(method, data){
-    console.log("Entra a sendRequest");
     $.soap({
         url: "https://gateway-tx-1.thriftly.io/dev/ep3ba9c4/StringService",        
         method: method,
@@ -35,7 +40,6 @@ function sendRequest(method, data){
 };
 		
 $("#Unir").click(function (){
-    console.log("Entra a clic Unir");
     sendRequest("unir", {
         string1: $("#unirString1").val(),
         string2: $("#unirString2").val()
