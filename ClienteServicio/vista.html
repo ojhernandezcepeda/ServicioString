@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<htmL lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ejemplo SOAP grupo3</title>
+	</head>	
+	<body>
+		<h1>Consumo de SOAP con thriftly API y JQuery </h1>
+		<div class="controls">
+			<div class = "api-method">
+				string1 <input class="method-text" type="text" id="unirString1" /><br />
+				string2 <input class="method-text" type="text" id="unirString2" /><br />
+				<input class="method-button" type="button" id="Unir" value="unir" />
+			</div>
+			<div class = "api-method">
+				string1 <input class="method-text" type="text" id="aMayusString1" /><br />				
+				<input class="method-button" type="button" id="AMayusculas" value="aMayusculas" />
+			</div>
+			<div class = "api-method">
+				string1 <input class="method-text" type="text" id="aMinusString1" /><br />				
+				<input class="method-button" type="button" id="AMinusculas" value="aMinusculas" />
+			</div>
+		</div>
+		<div class="io">
+			<div id="input-container" class="input io-wrapper">
+				<p class="io-label">INPUT</p>
+				<pre><code id="input-code"></code></pre>
+			</div>
+			<div id="output-container" class="output io-wrapper">
+				<p class="io-label">OUTPUT</p>
+				<pre><code id="output-code"></code></pre>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="jquery.soap.js"></script>
+		<script src="jquery.format.js"></script>
+		<script src="modelo.js"></script>
+	</body>
+</htmL>
