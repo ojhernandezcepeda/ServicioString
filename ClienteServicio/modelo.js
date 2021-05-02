@@ -8,6 +8,7 @@ function displayResult(response){
     $('#output-code').text(respuesta);
     $('#output-container').removeClass("error");
     $('#output').removeClass("alert-light");
+    $('#output').removeClass("alert-danger");
     $('#output').addClass('alert-success');
     var parser = new DOMParser();
     var xmlDoc = parser.parseFromString(response,'text/xml');
@@ -21,6 +22,7 @@ function displayError(response){
     $('#output-code').text(respuesta);
     $('#output-container').addClass("error");
     $('#output').removeClass("alert-light");
+    $('#output').removeClass("alert-success");
     $('#output').addClass('alert-danger');
 };
 
